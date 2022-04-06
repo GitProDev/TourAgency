@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="mt-3 text-center">
-		<h2 css="margin: auto;">Create Tour </h2>
+		<h2 css="margin: auto;">Create Attraction</h2>
 	</div>
 	<div class="container-fluid">
 		<div class="row">
@@ -12,7 +12,6 @@
 					@csrf
 					  <div class="mb-3 mt-3">
 					    <label for="location" class="form-label">Location:</label>
-					    {{-- <textarea name="location" id="location" class="form-control">{{ old('location') }}</textarea> --}}
 					    <input name="location" id="location" class="form-control" value="{{ old('location') }}">
 					    @error('location')
 		    				<div class="alert alert-danger" style="padding: 3px;">{{ $message }}</div>
