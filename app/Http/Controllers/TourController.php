@@ -6,11 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\Tour;
 use App\Models\Attraction;
+use Illuminate\Database\Eloquent\Builder;
 
 class TourController extends Controller
 {
 	public function index(){
-		$tours = Tour::all();
+		$tours = Tour::simplePaginate('5');
+        $tours->onEachSide(2)->links();
+        dd($tours->onEachSide(2)->links());
 		return view('dashboard/tours', ['tours' => $tours]);
 	}
     public function create(){
@@ -52,5 +55,38 @@ class TourController extends Controller
     public function destroy(Tour $tour){
   		$tour->delete();
     	echo json_encode(['success' => 'true', 'message' => 'Tour Deleted!']);	 
+    }
+
+    public function search(){
+        $tours = Tour::with('attraction')
+            ->whereHas('attraction', function (Builder $query) {
+                $query->where('location', 'like', '%' . request('search_tours') . '%');
+            })
+            ->orWhere('description', 'like', '%' . request('search_tours') . '%')
+            ->simplePaginate('5')
+            ->setPath('/');
+
+        $html = '';        
+
+        foreach ($tours as $tour){
+            $html .= '
+            <tr>
+                <td class="w-50">' . $tour->description . '</td>
+                <td>' . date("Y-M-d", strtotime($tour->date)) . '</td>
+                <td>' . $tour->attraction->location . '</td>
+                <td>' . $tour->cost . '&euro;</td>
+                <td>
+                    <div class="flex-shrink-0">';
+                        if (!empty($tour->attraction->image)){
+                            $html .= '<img src="' . asset('storage/' . $tour->attraction->image ) . '" alt="" width="120" height="120" class="rounded-xl">';
+                        }
+                        
+            $html .= '</div>
+                </td>
+            </tr>';
+        }
+        $paginationLinks = $tours->onEachSide(2)->links()->render();
+        echo json_encode(['html' => $html, 'pagination_links' => $paginationLinks]);  
+        //return Response::json(View::make('includes.posts', ['posts' => $posts])->render());
     }
 }

@@ -10,7 +10,7 @@ use App\Models\Tour;
 class AttractionController extends Controller
 {
     public function index(){
-    	$attractions = Attraction::all();
+        $attractions = Attraction::simplePaginate('5');
 		return view('dashboard/attractions', ['attractions' => $attractions]);
     }
 
@@ -43,12 +43,17 @@ class AttractionController extends Controller
             'image' => 'image'
         ]);
 
-        if(isset($attributes['image']))
-    		$attributes['image'] = request()->file('image')->store('images');
+        if(isset($attributes['image'])){
+            $img_path = request()->file('image')->store('images');
+    		$attributes['image'] = $img_path;
+        }
+        else
+            $img_path = '';
 
     	$attraction->update($attributes);
 
     	return back()->with('success', 'Attraction Updated!');
+        //echo json_encode(['success' => 'true', 'img_path' => $img_path]);
 	}
 
 	public function destroy(Attraction $attraction){

@@ -11,8 +11,8 @@
 		  </li>
 		</ul>
 	</div>
-	<div class="p-5  rounded">
-		<table class="table table-bordered">
+	<div class="p-3  rounded">
+		<table class="table table-bordered mb-5">
 			<thead>
 				<tr>
 					<th>Tour Description</th>
@@ -45,5 +45,8 @@
 				@endforeach
 			</tbody>
 		</table>
+		<div class="text-center">
+			{{ $tours->links() }}
+		</div>
 	</div>
 @endsection

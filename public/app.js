@@ -97,6 +97,28 @@ $(function(){
 	    });
 	});
 
+	// $("#edit_attraction_form").submit(function(event){
+	// 	event.preventDefault();
+
+	// 	var id = $('.del_img_btn').attr('id');
+	// 	console.log($('#edit_attraction_form').serialize());    edit_attraction_form
+	// 	console.log(new FormData(this));
+	// 	$.ajax({ 
+	//         type: 'POST', 
+	//         url: 'http://localhost:8000/dashboard/attraction/' + id + '/image', 
+	//         dataType: "json",
+	//         data: new FormData(this), 
+	//         success: function (data) { 
+	//         	if(data.success == 'true'){
+	//             	alert('success!');
+	//         	}
+	//             else
+	//             	alert('Something went wrong!');
+
+	//         }
+	//     });
+	// });
+
 });
     
     

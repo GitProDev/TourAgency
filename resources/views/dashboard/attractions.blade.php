@@ -11,11 +11,11 @@
 		  </li>
 		</ul>
 	</div>
-	<div class="p-5  rounded">
+	<div class="p-3  rounded">
 		<div class="row">
 		  <div class="col-md-4"></div>
 		  <div class="col-md-4">
-		  	<table class="table table-bordered">
+		  	<table class="table table-bordered mb-5">
 				<thead>
 					<tr>
 						<th>Location</th>
@@ -42,6 +42,9 @@
 					@endforeach
 				</tbody>
 			</table>
+			<div class="text-center">
+				{{ $attractions->onEachSide(2)->links() }}
+			</div>
 		  </div>
 		  <div class="col-md-4"></div>
 		</div>

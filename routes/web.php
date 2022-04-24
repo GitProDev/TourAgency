@@ -18,10 +18,15 @@ use App\Models\Tour;
 */
 
 Route::get('/', function () {
-	$tours = Tour::all();
+	$tours = Tour::simplePaginate('5');
     return view('index', ['tours' => $tours]);
 });
 
+Route::get('/contactus', function () {
+    return view('contactus');
+});
+
+Route::get('/search_tours', [TourController::class, 'search']);
 Route::get('/dashboard/tours', [TourController::class, 'index'])->middleware('auth');
 Route::get('/dashboard/attractions', [AttractionController::class, 'index'])->middleware('auth');
 
@@ -29,6 +34,7 @@ Route::get('/dashboard/tour/create', [TourController::class, 'create'])->middlew
 Route::post('/dashboard/tour', [TourController::class, 'store'])->middleware('auth');
 Route::get('/dashboard/tour/{tour}/edit', [TourController::class, 'edit'])->middleware('auth');
 Route::patch('/dashboard/tour/{tour}', [TourController::class, 'update'])->middleware('auth');
+
 
 Route::get('/dashboard/attraction/create', [AttractionController::class, 'create'])->middleware('auth');
 Route::post('/dashboard/attraction', [AttractionController::class, 'store'])->middleware('auth');

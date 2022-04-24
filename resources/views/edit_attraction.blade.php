@@ -8,7 +8,7 @@
 		<div class="row">
 			<div class="col-sm-4"></div>
 			<div class="col-sm-4">
-				<form action="/dashboard/attraction/{{ $attraction->id }}" method="POST" enctype="multipart/form-data">
+				<form id="edit_attraction_form" action="/dashboard/attraction/{{ $attraction->id }}" method="POST" enctype="multipart/form-data">
 					@csrf
 					@method('patch')
 					  <div class="mb-3 mt-3">
@@ -32,7 +32,7 @@
 		    			@enderror
 					  </div>
 					  <div>
-					  	<button type="submit" class="btn btn-primary">Submit</button>
+					  	<button id="edit_attraction_btn" type="submit" class="btn btn-primary">Submit</button>
 					  	@if (!empty($attraction->image))
 					  		<button id="{{ $attraction->id }}" type="button" class="btn btn-primary del_img_btn">Delete Image</button>
 					  	@endif
