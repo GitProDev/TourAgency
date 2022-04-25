@@ -1,3 +1,21 @@
 /*.input-group-append {
   cursor: pointer;
 }*/
+div.container {
+	margin-top: 120px;
+}
+
+@media only screen and (max-width:576px) {
+  /* For mobile phones: */
+  #admin_dashboard_dropdown_btn {
+  	padding-left: 0;
+  	padding-right: 0;
+  }
+  /*main {
+  	background-color: red;
+  }*/
+  div.container {
+  	margin-top: 200px;
+  }
+}
+ 

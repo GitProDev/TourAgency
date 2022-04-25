@@ -14,27 +14,32 @@
             </form>
             <input type="hidden" name="search_data" >
         </div>
-		<table id="tours_table" class="table mb-5">
+        <div class="row">
+	  {{-- <div class="col-md-3 col-xl-4"></div>
+	  <div class="col-md-6 col-xl-4"> --}}
+	  	<table id="tours_table" class="table mb-5 text-center">
 			<thead>
 				<tr>
 					<th>Tour Description</th>
 					<th>Date</th>
 					<th>Location</th>
 					<th>Cost</th>
-					<th>Image</th>
+					<th style="min-width: 136px;">Image</th>
 				</tr>	
 			</thead>
 			<tbody>
 				@foreach ($tours as $tour)
 					<tr>
-						<td class="w-50">{{ $tour->description }}</td>
-						<td>{{ date("Y-M-d", strtotime($tour->date)) }}</td>
-						<td>{{ $tour->attraction->location }}</td>
-						<td>{{ $tour->cost }}&euro;</td>
-						<td>
+						<td class="w-50 align-middle" style="text-align: left;">{{ $tour->description }}</td>
+						<td class="align-middle">{{ date("Y-M-d", strtotime($tour->date)) }}</td>
+						<td class="align-middle">{{ $tour->attraction->location }}</td>
+						<td class="align-middle">{{ $tour->cost }}&euro;</td>
+						<td class="align-middle" >
 							<div class="flex-shrink-0">
 					        	@if (!empty($tour->attraction->image))
-					        		<img src="{{ asset('storage/' . $tour->attraction->image ) }}" alt="" width="120" height="120" class="rounded-xl">
+					        		<img src="{{ asset('storage/' . $tour->attraction->image ) }}" alt="" style="width: 120px; height: 120px; background-color: #D3B04D" class="rounded-xl img-thumbnail">
+					        	@else
+					        		<img src="{{ asset('storage/images/special/no_image.png' ) }}" alt="" style="width: 120px; height: 120px;" class="rounded-xl img-thumbnail">
 					        	@endif
 					    	</div>
 					    </td>
@@ -42,6 +47,9 @@
 				@endforeach
 			</tbody>
 		</table>
+	  {{-- </div>
+	  <div class="col-md-3 col-xl-4"></div> --}}
+	</div>
 		<div id="pagination" class="text-center">
 			{{ $tours->onEachSide(2)->links() }}
 		</div>

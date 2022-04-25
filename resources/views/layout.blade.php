@@ -4,9 +4,10 @@
 	<title>Tours</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-	<script type="text/css" src="/app.css"></script>
+	<link rel="stylesheet" href="/app.css">
 	<style type="text/css">
-		body { font-family: sans-serif; }
+		body { font-family: sans-serif;  }
+		
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	@if(session()->has('success'))
@@ -18,13 +19,13 @@
 	@endif
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
-<body class="d-flex flex-column vh-100">{{-- h-100 --}}
+<body class="d-flex flex-column vh-100" style="background-color: #FFFFCD">{{-- h-100 --}}
 	<header>
 		<div class="d-flex bg-dark fixed-top">{{-- flex-row-reverse --}}
 			<a class="navbar-brand pull-left d-flex align-items-center" href="/">
 				<img src="{{ asset('storage/images/logos/tour_agency_logo_rectangle.png') }}" alt="" width="" height="66" class="rounded-xl" style="margin: 3px; margin-left: 10px; float: left;">
 			</a>
-			<nav class="navbar navbar-expand-sm navbar-dark " style="margin-left: 57%;">
+			<nav class="navbar navbar-expand-sm navbar-dark ms-auto">
 			  <div class="container-fluid">
 			    <ul class="navbar-nav justify-content-end" style="margin-right: 10px;">
 			      <li class="nav-item">
@@ -32,7 +33,7 @@
 			      </li>
 			      <li class="nav-item">
 			        <div class="dropdown">
-					  <button type="button" class="btn btn-dark dropdown-toggle" style="color: {{ (request()->is('dashboard/tours') OR request()->is('dashboard/attractions')) ? '' : '#9B9D9E' }}" data-bs-toggle="dropdown">
+					  <button type="button" class="btn btn-dark dropdown-toggle" style="color: {{ (request()->is('dashboard/tours') OR request()->is('dashboard/attractions')) ? '' : '#9B9D9E' }}" data-bs-toggle="dropdown" id="admin_dashboard_dropdown_btn">
 					    Admin Dashboard
 					  </button>
 					  <ul class="dropdown-menu">
@@ -57,7 +58,7 @@
 		</div>
 	</header>
 	<main class="flex-shrink-0">
-		<div class="container" style="margin-top: 120px;">
+		<div class="container">
 			@yield('content')	
 		</div>	
 	</main>

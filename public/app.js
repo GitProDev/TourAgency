@@ -39,6 +39,11 @@ $(function(){
 	       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 	    }
 	});
+	// $.ajaxSetup({
+	//     headers: {
+	//        'Access-Control-Allow-Origin': ''
+	//     }
+	// });
 
     $(".delete_attraction").click(function(){
     	var id = $(this).attr('id');

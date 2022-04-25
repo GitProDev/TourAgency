@@ -21,10 +21,10 @@
 					  <div class="mb-3 mt-3">
 					    <label for="image" class="form-label">Image:</label>
 					    <input type="file" name="image">
-					    <div style="margin: auto;">
+					    <div class="text-center">
 			        	@if (!empty($attraction->image))
 			        		{{-- <img src="https://picsum.photos/id/{{ $attraction->id * 5 }}/300/300" alt="" width="60" height="60" class="rounded-xl"> --}}
-			        		<img src="{{ asset('storage/' . $attraction->image ) }}" alt="" width="150" height="150" class="rounded-xl img-thumbnail" style="margin-left: 38%" id="attraction_img">
+			        		<img src="{{ asset('storage/' . $attraction->image ) }}" alt="" width="150" style="height: 150px; background-color: #D3B04D; margin: 16px;" class="rounded-xl img-thumbnail" id="attraction_img">
 			        	@endif
 			    		</div>
 					    @error('image')

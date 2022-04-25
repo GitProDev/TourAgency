@@ -13,7 +13,6 @@ class TourController extends Controller
 	public function index(){
 		$tours = Tour::simplePaginate('5');
         $tours->onEachSide(2)->links();
-        dd($tours->onEachSide(2)->links());
 		return view('dashboard/tours', ['tours' => $tours]);
 	}
     public function create(){
@@ -79,6 +78,9 @@ class TourController extends Controller
                     <div class="flex-shrink-0">';
                         if (!empty($tour->attraction->image)){
                             $html .= '<img src="' . asset('storage/' . $tour->attraction->image ) . '" alt="" width="120" height="120" class="rounded-xl">';
+                        }
+                        else{
+                            $html .= '<img src="' . asset('storage/images/special/no_image.png' ) . '" alt="" width="120" height="120" class="rounded-xl">';
                         }
                         
             $html .= '</div>
