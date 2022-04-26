@@ -43,7 +43,7 @@
 					</div>
 			      </li>
 			      <li class="nav-item">
-			      	<a class="nav-link {{ request()->is('/contactus') ? 'active' : '' }}" href="/contactus">Contact Us</a>
+			      	<a class="nav-link {{ request()->is('contactus') ? 'active' : '' }}" href="/contactus">Contact Us</a>
 			      </li>
 			      <li class="nav-item">
 			        @guest
