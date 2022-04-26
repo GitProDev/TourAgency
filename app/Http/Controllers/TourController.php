@@ -77,10 +77,10 @@ class TourController extends Controller
                 <td>
                     <div class="flex-shrink-0">';
                         if (!empty($tour->attraction->image)){
-                            $html .= '<img src="' . asset('storage/' . $tour->attraction->image ) . '" alt="" width="120" height="120" class="rounded-xl">';
+                            $html .= '<img src="' . asset('storage/' . $tour->attraction->image ) . '" alt="" width="120" style="height: 120px; background-color: #D3B04D;" class="rounded-xl img-thumbnail">';
                         }
                         else{
-                            $html .= '<img src="' . asset('storage/images/special/no_image.png' ) . '" alt="" width="120" height="120" class="rounded-xl">';
+                            $html .= '<img src="' . asset('storage/images/special/no_image.png' ) . '" alt="" width="120" style="height: 120px;" class="rounded-xl img-thumbnail">';
                         }
                         
             $html .= '</div>
