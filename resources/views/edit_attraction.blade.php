@@ -6,8 +6,8 @@
 	</div>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-4"></div>
-			<div class="col-sm-4">
+			<div class="col-1 col-md-2 col-lg-3 col-xxl-4"></div>
+			<div class="col-10 col-md-8 col-lg-6 col-xxl-4">
 				<form id="edit_attraction_form" action="/dashboard/attraction/{{ $attraction->id }}" method="POST" enctype="multipart/form-data">
 					@csrf
 					@method('patch')
@@ -39,7 +39,7 @@
 					  </div>
 				</form>
 			</div>
-			<div class="col-sm-4"></div>
+			<div class="col-1 col-md-2 col-lg-3 col-xxl-4"></div>
 		</div>
 	</div>
 @endsection

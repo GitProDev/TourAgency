@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-	<style type="text/css">
+	{{-- <style type="text/css">
 		
 		@media only screen and (max-width:992px) {
 		  table {
@@ -14,7 +14,7 @@
 		  }
 		}
 				
-	</style>
+	</style> --}}
 	<div class="mt-3 text-center">
 		<h2 css="margin: auto;">Attraction Management</h2>
 	</div>

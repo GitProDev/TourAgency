@@ -6,8 +6,8 @@
 	</div>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-4"></div>
-			<div class="col-sm-4">
+			<div class="col-1 col-md-2 col-lg-3 col-xxl-4"></div>
+			<div class="col-12 col-md-8 col-lg-6 col-xxl-4">
 				<form action="/dashboard/attraction" method="POST" enctype="multipart/form-data">
 					@csrf
 					  <div class="mb-3 mt-3">
@@ -29,7 +29,7 @@
 					  </div>
 				</form>
 			</div>
-			<div class="col-sm-4"></div>
+			<div class="col-1 col-md-2 col-lg-3 col-xxl-4"></div>
 		</div>
 	</div>
 @endsection
