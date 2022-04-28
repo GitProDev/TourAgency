@@ -50,7 +50,7 @@ $(function(){
 
 	    $.ajax({ 
 	        type: 'POST', 
-	        url: 'http://localhost:8000/dashboard/attraction/' + id, 
+	        url: '/dashboard/attraction/' + id, //http://localhost:8000
 	        dataType: "json",
 	        data: { _method: 'DELETE' }, 
 	        success: function (data) { 
@@ -68,7 +68,7 @@ $(function(){
 
 	    $.ajax({ 
 	        type: 'POST', 
-	        url: 'http://localhost:8000/dashboard/tour/' + id, 
+	        url: '/dashboard/tour/' + id,  //http://localhost:8000
 	        dataType: "json",
 	        data: { _method: 'DELETE' }, 
 	        success: function (data) { 
@@ -86,7 +86,7 @@ $(function(){
 
 	    $.ajax({ 
 	        type: 'POST', 
-	        url: 'http://localhost:8000/dashboard/attraction/' + id + '/image', 
+	        url: '/dashboard/attraction/' + id + '/image', 
 	        dataType: "json",
 	        data: { _method: 'DELETE' }, 
 	        success: function (data) { 
